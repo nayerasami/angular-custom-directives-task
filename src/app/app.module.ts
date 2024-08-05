@@ -7,6 +7,7 @@ import { FormInputsComponent } from './components/form-inputs/form-inputs.compon
 import { NoSpecialCharDirective } from './Directives/no-special-char.directive';
 import { AcceptOnlyCharDirective } from './Directives/accept-only-char.directive';
 import { RestrictArCharDirective } from './Directives/restrict-ar-char.directive';
+import { GenericDirectiveDirective } from './Directives/generic-directive.directive';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { RestrictArCharDirective } from './Directives/restrict-ar-char.directive
     FormInputsComponent,
     NoSpecialCharDirective,
     AcceptOnlyCharDirective,
-    RestrictArCharDirective
+    RestrictArCharDirective,
+    GenericDirectiveDirective
   ],
   imports: [
     BrowserModule,

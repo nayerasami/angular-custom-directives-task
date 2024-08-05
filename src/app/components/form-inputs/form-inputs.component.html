@@ -1,17 +1,25 @@
 <div class="container my-3">
 
     <form>
+        <!-- no special characters -->
+     
         <div class="mb-3">
-            <input NoSpecialChar type="text" class="form-control" placeholder="First Name">
+            <input  appGenericDirective="prevent special characters" type="text" class="form-control" placeholder="First Name">
         </div>
 
+
+        <!-- accept only characters -->
+
+    
+         <div class="mb-3">
+            <input type="text" appGenericDirective="accept only characters" class="form-control"  placeholder="Last Name">
+        </div>
+ 
+        <!-- restrict arabic characters -->
         <div class="mb-3">
-            <input type="text" AcceptOnlyChar class="form-control"  placeholder="Last Name">
+            <input type="text" appGenericDirective="restrict arabic characters" class="form-control" placeholder="userName">
         </div>
 
-        <div class="mb-3">
-            <input type="text" RestrictArChar class="form-control" placeholder="userName">
-        </div>
     </form>
 
 </div>

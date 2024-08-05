@@ -4,14 +4,15 @@ import { Directive, ElementRef, HostListener } from '@angular/core';
   selector: '[AcceptOnlyChar]'
 })
 export class AcceptOnlyCharDirective {
-  private regexPattern: any = /^[a-zA-Z\u0600-\u06ff]*$/;
+  private regexPattern: any = /[^a-zA-Z\u0600-\u06ff]/g;
   constructor(private elementRef: ElementRef) { }
 
   @HostListener('input', ['$event']) onTextChange(event: Event) {
     const currentValue = this.elementRef.nativeElement.value;
-    if (this.regexPattern.test(currentValue) === false) {
-      console.log("pattern didn't match")
+    console.log(this.regexPattern.test(currentValue))
+    if (this.regexPattern.test(currentValue) === true) {
       this.elementRef.nativeElement.value = currentValue.replace(/[^a-zA-Z\u0600-\u06ff]/g, '')
+      console.log("pattern didn't match")
       event.preventDefault()
     }
 
