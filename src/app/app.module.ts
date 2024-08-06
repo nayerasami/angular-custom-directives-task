@@ -8,6 +8,7 @@ import { NoSpecialCharDirective } from './Directives/no-special-char.directive';
 import { AcceptOnlyCharDirective } from './Directives/accept-only-char.directive';
 import { RestrictArCharDirective } from './Directives/restrict-ar-char.directive';
 import { GenericDirectiveDirective } from './Directives/generic-directive.directive';
+import { GenericDirDirective } from './Directives/generic-dir.directive';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { GenericDirectiveDirective } from './Directives/generic-directive.direct
     NoSpecialCharDirective,
     AcceptOnlyCharDirective,
     RestrictArCharDirective,
-    GenericDirectiveDirective
+    GenericDirectiveDirective,
+    GenericDirDirective
   ],
   imports: [
     BrowserModule,

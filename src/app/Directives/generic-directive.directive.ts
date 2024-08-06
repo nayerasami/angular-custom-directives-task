@@ -12,10 +12,10 @@ export class GenericDirectiveDirective implements OnInit {
     // this.regexPattern = new RegExp(this.pattern)
     switch (this.appGenericDirective) {
       case 'prevent special characters':
-        this.regexPattern = /[^a-zA-Z0-9\u0600-\u06ff]/g;
+        this.regexPattern = /[!@#$%^&*(),.|]/g;
         break;
       case 'accept only characters':
-        this.regexPattern = /[^a-zA-Z\u0600-\u06ff]/g;
+        this.regexPattern = /[0-9\!@#$%^&*(),.|]/g;
         break;
       case 'restrict arabic characters':
         this.regexPattern = /[\u0600-\u06ff]/g;
@@ -24,21 +24,16 @@ export class GenericDirectiveDirective implements OnInit {
     }
   }
 
-  @HostListener('input', ['$event']) onTextChange(event: Event) {
-    event.preventDefault()
+
+
+
+  @HostListener('input', ['$event'])
+  onTextChange(event: Event) {
     const inputElement = event.target as HTMLInputElement;
     const currentValue = inputElement.value;
-
-    console.log(this.regexPattern.test(currentValue))
-
-
-    if (this.regexPattern.test(currentValue)===false) {
-
-      console.log("current value", currentValue)
-
-      console.log("pattern doesn't match")
+    if (currentValue.match(this.regexPattern)) {
       inputElement.value = currentValue.replace(this.regexPattern, '')
-
+      event.preventDefault()
     }
 
   }
